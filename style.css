@@ -208,43 +208,449 @@ h2 {
 }
 
 /* --- SKILLS & PROGRESS BARS --- */
+/* --- SKILL UNIVERSE SYSTEM (SHIVANSH STYLE) --- */
 .skills-section {
     padding: 60px 10%;
     max-width: 1200px;
     margin: 0 auto 100px auto;
 }
 
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
+.universe-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
 }
 
-.skill-badge-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.sector-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #666;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.skill-badge {
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobile par ek line mein 2 boxes */
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr); /* Laptop par ek line mein 4 boxes */
+    }
+}
+
+/* BIG BOXES STYLE */
+.skill-card {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card:hover {
+    background-color: #161616;
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* --- LOGO FIX: ICONS CHOTE AUR PERFECT RAHENGE --- */
+.skill-card img {
+    width: 35px;          /* Icons ka size chota aur uniform rahega */
+    height: 35px;
+    object-fit: contain;  /* Isse koi bhi photo stretch hokar kharab nahi hogi */
+    opacity: 0.6;         /* Shuruat mein clean silver-dark look */
+    filter: grayscale(100%) brightness(1.2); /* Shivansh style consistent tint */
+    transition: all 0.2s ease;
+}
+
+/* Hover ya active hone par original color chamkega */
+.skill-card:hover img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.1); /* Halka sa logo pop-up hoga */
+}
+
+.skill-card span {
     color: #fff;
     font-size: 0.95rem;
     font-weight: 500;
 }
 
-.progress-bar {
-    width: 100%;
+/* --- DYNAMIC DETAILS PANEL (SLIDE DRAWER) --- */
+.skill-details-drawer {
     background-color: #121212;
-    height: 6px;
-    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 30px;
+    display: none; /* Default mein hidden, click par khulega */
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.drawer-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.drawer-dot {
+    width: 14px;
+    height: 14px;
+    background-color: #a855f7; /* Purple colored block look */
+    border-radius: 4px;
+}
+
+#drawerSkillName {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.drawer-close-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.drawer-close-btn:hover {
+    color: #fff;
+}
+
+.drawer-category {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.drawer-description {
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+/* Card ke layout ko flex-direction column rakho */
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    text-align: center;
     overflow: hidden;
 }
 
-.progress-fill {
-    height: 100%;
-    background-color: #22c55e;
-    border-radius: 10px;
-    width: 0%; /* JS operates on this */
+/* Logo aur Name ka wrapper */
+.card-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* --- THE LITTLE TEXT STYLING (SHIVANSH STYLE) --- */
+.skill-inline-desc {
+    max-height: 0;        /* Shuruat mein hidden rahega */
+    opacity: 0;
+    font-size: 0.8rem;    /* Ekdum clean little text font */
+    color: #888;
+    margin-top: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth down opening */
+    pointer-events: none;
+}
+
+/* Jab card par click/active hoga tab ye class add hogi JS se */
+.skill-card.show-desc .skill-inline-desc {
+    max-height: 50px;     /* Little text smoothly sliding down */
+    opacity: 1;
+    margin-top: 10px;
+    color: #22c55e;       /*  highlight color */
+}/* --- SKILL UNIVERSE GENERAL LAYOUT --- */
+.skills-section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+}
+
+.universe-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+/* TABS BUTTONS (PILLS) */
+.skills-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #888;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* CARDS GRID SYSTEM */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobile layout */
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr); /* Laptop layout */
+    }
+}
+
+/* INDIVIDUAL SQUARE CARDS */
+.skill-card {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 26px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+}
+
+.skill-card:hover {
+    background-color: #161616;
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* FIXING UNIFORM ICON SIZES */
+.skill-card img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.7;
+    filter: grayscale(100%) brightness(1.2); /* Premium unified look */
+    transition: all 0.2s ease;
+}
+
+.skill-card:hover img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
+
+.skill-card span {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* --- THE INLINE INFO DROPDOWN --- */
+.skill-inline-info {
+    max-height: 0;
+    opacity: 0;
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.5;
+    margin-top: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+/* Active class dynamically added via JS */
+.skill-card.active-info {
+    border-color: #22c55e !important; /* Premium green indicator */
+    background-color: #141414;
+}
+
+.skill-card.active-info .skill-inline-info {
+    max-height: 80px; /* Smooth drop opening */
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.skill-card.active-info img {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+}
+/* --- SKILL UNIVERSE LAYOUT SYSTEM --- */
+.skills-section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+}
+
+.universe-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+/* TABS BUTTONS */
+.skills-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #888;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* GRID SETUP */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* SQUARE CHIPS */
+.skill-card {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 26px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    background-color: #161616;
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* UNIFORM IMAGES SYSTEM */
+.skill-card img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.7;
+    filter: grayscale(100%) brightness(1.2);
+    transition: all 0.2s ease;
+}
+
+.skill-card:hover img {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
+
+.skill-card span {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* LITTLE DESCRIPTION DROP DOWN */
+.skill-inline-info {
+    max-height: 0;
+    opacity: 0;
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.5;
+    margin-top: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Clicking Active States */
+.skill-card.active-info {
+    border-color: #22c55e !important; /* Premium Shivansh Green Border */
+    background-color: #141414;
+}
+
+.skill-card.active-info .skill-inline-info {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.skill-card.active-info img {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
 }

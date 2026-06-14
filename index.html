@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Annu | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css">
 </head>
 <body>
 
@@ -51,7 +52,7 @@
     <a href="project_detail.html" style="text-decoration: none; color: inherit;">
         <div class="card">
             <img src="gamified.png" alt="Project 1" class="card-img">
-            <h3 class="project-title">Gamified Student Platform ↗</h3>
+            <h3 class="project-title">Gamify↗</h3>
             <p>A platform where you can study with the help of games and can earn exciting rewards seamlessly.</p>
         </div>
     </a>
@@ -81,37 +82,320 @@
         </div>
     </section>
 
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Universe Test</title>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a; 
+            color: #ededed;
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- SKILL UNIVERSE GENERAL LAYOUT --- */
+        .skills-section {
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+
+        .universe-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        /* TABS BUTTONS (PILLS) */
+        .skills-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
+            padding: 10px 22px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* CARDS GRID SYSTEM */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* INDIVIDUAL SQUARE CARDS */
+        .skill-card {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 26px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            background-color: #161616;
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .card-main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* UNIFORM ICON SIZES FIX */
+        .skill-card img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.7;
+            filter: grayscale(100%) brightness(1.2);
+            transition: all 0.2s ease;
+        }
+
+        .skill-card:hover img {
+            opacity: 1;
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .skill-card span {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* --- THE INLINE INFO DROPDOWN --- */
+        .skill-inline-info {
+            max-height: 0;
+            opacity: 0;
+            font-size: 0.8rem;
+            color: #aaa;
+            line-height: 1.5;
+            margin-top: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            overflow: hidden; /* Text bahar na phaile */
+        }
+
+        /* Active classes */
+        .skill-card.active-info {
+            border-color: #22c55e !important; /* Premium green indicator */
+            background-color: #141414;
+        }
+
+        .skill-card.active-info .skill-inline-info {
+            max-height: 80px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        .skill-card.active-info img {
+            filter: grayscale(0%) brightness(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
     <section class="skills-section" id="skills">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-            
-            <div class="skill-badge-wrapper">
-                <span class="skill-badge">Adobe Photoshop</span>
-                <div class="progress-bar"><div class="progress-fill" data-width="90%"></div></div>
-            </div>
-
-            <div class="skill-badge-wrapper">
-                <span class="skill-badge">Adobe Illustrator</span>
-                <div class="progress-bar"><div class="progress-fill" data-width="85%"></div></div>
-            </div>
-
-            <div class="skill-badge-wrapper">
-                <span class="skill-badge">Figma</span>
-                <div class="progress-bar"><div class="progress-fill" data-width="80%"></div></div>
-            </div>
-
-            <div class="skill-badge-wrapper">
-                <span class="skill-badge">Typography</span>
-                <div class="progress-bar"><div class="progress-fill" data-width="75%"></div></div>
-            </div>
-
-            <div class="skill-badge-wrapper">
-                <span class="skill-badge">Visual Arts & Layout</span>
-                <div class="progress-bar"><div class="progress-fill" data-width="85%"></div></div>
-            </div>
-
+        <h2 class="universe-title">Skill Universe</h2>
+        
+        <div class="skills-tabs">
+            <button class="tab-btn active" onclick="filterUniverse('all')">All</button>
+            <button class="tab-btn" onclick="filterUniverse('frontend')">Frontend</button>
+            <button class="tab-btn" onclick="filterUniverse('backend')">Backend</button>
+            <button class="tab-btn" onclick="filterUniverse('core')">Core</button>
         </div>
+
+        <div class="skills-grid" id="skillsGrid">
+            
+            <div class="skill-card frontend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                    <span>HTML</span>
+                </div>
+                <div class="skill-inline-info">Mastered semantic structures, modern web forms, and accessibility standards.</div>
+            </div>
+
+            <div class="skill-card frontend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                    <span>CSS</span>
+                </div>
+                <div class="skill-inline-info">Expertise in responsive layouts using Flexbox, CSS Grid, and custom animations.</div>
+            </div>
+
+            <div class="skill-card frontend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-inline-info">Deep logic in modern ES6+, DOM manipulation, and asynchronous APIs.</div>
+            </div>
+
+            <div class="skill-card frontend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                    <span>Figma</span>
+                </div>
+                <div class="skill-inline-info">Proficient in UI/UX wireframing, component libraries, and prototypes.</div>
+            </div>
+
+            <div class="skill-card backend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS">
+                    <span>Node.js</span>
+                </div>
+                <div class="skill-inline-info">Building highly scalable, asynchronous server-side web applications.</div>
+            </div>
+
+            <div class="skill-card backend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" style="filter: invert(1);">
+                    <span>Express</span>
+                </div>
+                <div class="skill-inline-info">Developing robust RESTful APIs, routing configurations, and middleware.</div>
+            </div>
+
+            <div class="skill-card backend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                    <span>MongoDB</span>
+                </div>
+                <div class="skill-inline-info">Designing NoSQL schema models and handling large data aggregations.</div>
+            </div>
+
+            <div class="skill-card backend" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                    <span>SQL</span>
+                </div>
+                <div class="skill-inline-info">Writing complex relational queries, tables joins, and schema constraints.</div>
+            </div>
+
+            <div class="skill-card core" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                    <span>C Language</span>
+                </div>
+                <div class="skill-inline-info">Strong grip on low-level memory management, allocation, and pointers.</div>
+            </div>
+
+            <div class="skill-card core" onclick="toggleCardInfo(this)">
+                <div class="card-main-content">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                    <span>Java</span>
+                </div>
+                <div class="skill-inline-info">Solid foundation in Object-Oriented Programming (OOP) architectures.</div>
+            </div>
+
+
+
+<div class="skill-card core" onclick="toggleCardInfo(this)">
+    <div class="card-main-content">
+        <img src="https://img.icons8.com/color/48/autodesk-autocad.png" alt="AutoCAD" style="filter: none; opacity: 1;">
+        <span>AutoCAD</span>
+    </div>
+    <div class="skill-inline-info">Engineering 2D drafting models, mechanical layouts, and blueprint designs.</div>
+</div>
+<div class="skill-card core" onclick="toggleCardInfo(this)">
+    <div class="card-main-content">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" style="fill: none; stroke: #22c55e; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <span>DSA</span>
+    </div>
+    <div class="skill-inline-info">Implementing optimal data structures and efficient time-complexity algorithms.</div>
+</div>
+
     </section>
+
+    <script>
+        // 1. TABS FILTER WORKER
+        function filterUniverse(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Current target setup fixed
+            if(window.event) {
+                window.event.target.classList.add('active');
+            }
+
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach(card => {
+                card.classList.remove('active-info'); // Tab switch pe info close
+
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    if (card.classList.contains(category)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // 2. TAP TO OPEN INFO WORKER
+        function toggleCardInfo(cardElement) {
+            const allCards = document.querySelectorAll('.skill-card');
+            allCards.forEach(c => {
+                if (c !== cardElement) c.classList.remove('active-info');
+            });
+
+            cardElement.classList.toggle('active-info');
+        }
+    </script>
+</body>
+</html>
+
+
 
     <script src="script.js"></script>
 </body>
