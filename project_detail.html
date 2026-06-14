@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail | Gamified Study Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-wrapper {
+            max-width: 900px;
+            margin: 120px auto 100px auto;
+            padding: 0 20px;
+        }
+        .back-link {
+            color: #22c55e;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: transform 0.2s ease;
+        }
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        .project-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: #22c55e;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        .main-showcase-img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 50px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        @media (max-w: 768px) {
+            .info-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+        .info-left h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+        .info-left p {
+            color: #a3a3a3;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .feature-box h4 {
+            color: #fff;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-right {
+            background: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            height: fit-content;
+        }
+        .info-right h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .meta-list {
+            list-style: none;
+        }
+        .meta-list li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #a3a3a3;
+        }
+        .meta-list li strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="detail-wrapper">
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+
+        <div class="project-header">
+            <h1>QuestStudy</h1>
+            <p class="project-subtitle">Gamified Stress-Free EdTech Ecosystem</p>
+        </div>
+
+        <img src="images/gamified.png" alt="QuestStudy Mockup Dashboard" class="main-showcase-img">
+
+        <div class="info-grid">
+            
+            <div class="info-left">
+                <h2>The Big Idea</h2>
+                <p>
+                    Students target core academic anxiety everyday. <strong>QuestStudy</strong> enters as a hybrid framework that redesigns tedious syllabus trackers into gamified daily quests. The objective is simple: reduce academic pressure through psychological positive reinforcement.
+                </p>
+
+                <h2>Core Systems Built</h2>
+                
+                <div class="feature-box">
+                    <h4>🌐 Dual Mechanics (Online + Offline)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Online mode syncs quiz battles and digital micro-tasks, while the Offline module implements automated Pomodoro intervals to track real-desk library study sessions without screen distractions.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h4>🪙 Task Economy (Game Coins)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Completing dynamic practice sets, mock exams, or consistent study targets rewards users with proprietary profile coins. These coins act as tokens to customize dashboard tiers or trade for real student perks.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h4>🧠 Stress-Free Interface Layout</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Designed natively on dark zen interfaces to minimize biological cognitive overload. Heavy performance pressure gauges are replaced with non-punitive character progression mechanics.</p>
+                </div>
+            </div>
+
+            <div class="info-right">
+                <h3>Project Blueprints</h3>
+                <ul class="meta-list">
+                    <li>
+                        <strong>ROLE</strong>
+                        UI/UX Research & Visual Identity
+                    </li>
+                    <li>
+                        <strong>TIMELINE</strong>
+                        4 Weeks (Academic Sandbox Project)
+                    </li>
+                    <li>
+                        <strong>CORE TOOLS</strong>
+                        Figma, Adobe Illustrator, CSS Grid System
+                    </li>
+                    <li>
+                        <strong>DESIGN TARGET</strong>
+                        UX Optimization, Interaction Design, Visual Strategy
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+<!-- --- SMOOTH SCROLL FOR TABS --- */
+html {
+    scroll-behavior: smooth; /* Isse tabs par click karne par smoothly screen niche aayegi */
+}
+
+/* --- HERO VIDEO STYLING --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Screen ki height ke hisab se setup */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.4; /* Video ko halka dark kiya h taki text saaf dikhe */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Text video ke upar dikhega */
+    text-align: center;
+    padding: 20px;
+}-->

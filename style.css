@@ -1,0 +1,250 @@
+/* --- GOOGLE FONTS (Shivansh Jaisa Inter Font) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+/* --- SMOOTH SCROLL FOR TABS --- */
+html {
+    scroll-behavior: smooth; /* Isse tabs par click karne par smoothly screen niche aayegi */
+}
+
+/* --- HERO VIDEO STYLING --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Screen ki height ke hisab se setup */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.4; /* Video ko halka dark kiya h taki text saaf dikhe */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Text video ke upar dikhega */
+    text-align: center;
+    padding: 20px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0a0a0a; 
+    color: #ededed;
+    padding-top: 40px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- SYSTEM STATUS BAR --- */
+.status-bar {
+    background-color: #121212;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 10%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.status-active {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+    position: fixed;
+    top: 36px;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.75); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+.nav-links a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 160px 20px 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* --- HEADINGS --- */
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* --- PROJECTS GRID --- */
+.projects-section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: #161616;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #1a1a1a;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* --- SKILLS & PROGRESS BARS --- */
+.skills-section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+}
+
+.skill-badge-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-badge {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #121212;
+    height: 6px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #22c55e;
+    border-radius: 10px;
+    width: 0%; /* JS operates on this */
+}
