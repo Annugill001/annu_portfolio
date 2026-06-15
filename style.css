@@ -1,57 +1,32 @@
-/* --- GOOGLE FONTS (Shivansh Jaisa Inter Font) --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-/* --- SMOOTH SCROLL FOR TABS --- */
+/* ==========================================================================
+   1. GOOGLE FONTS & GLOBAL RESET
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 html {
-    scroll-behavior: smooth; /* Isse tabs par click karne par smoothly screen niche aayegi */
+    scroll-behavior: smooth;
 }
 
-/* --- HERO VIDEO STYLING --- */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 80vh; /* Screen ki height ke hisab se setup */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0;
-}
-
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    object-fit: cover;
-    opacity: 0.4; /* Video ko halka dark kiya h taki text saaf dikhe */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2; /* Text video ke upar dikhega */
-    text-align: center;
-    padding: 20px;
-}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    /* !important rules backup fallback system fonts on mobile devices */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
 body {
     background-color: #0a0a0a; 
     color: #ededed;
-    padding-top: 40px;
+    padding-top: 0; /* Padding navbar margin ke according set ki hai */
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal side scrolling */
 }
 
-/* --- SYSTEM STATUS BAR --- */
+/* ==========================================================================
+   2. SYSTEM STATUS BAR & NAVIGATION (SHIVANSH STYLE RESIZE)
+   ========================================================================== */
 .status-bar {
     background-color: #121212;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -77,20 +52,20 @@ body {
     box-shadow: 0 0 8px #22c55e;
 }
 
-/* --- NAVIGATION BAR --- */
+/* --- PREMIUM NAVBAR STICKY CONTAINER --- */
 .navbar {
-    position: fixed;
-    top: 36px;
+    position: sticky;
+    top: 0;
     width: 100%;
     background-color: rgba(10, 10, 10, 0.75); 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .logo {
@@ -100,25 +75,60 @@ body {
     color: #fff;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     color: #888;
     text-decoration: none;
     margin-left: 25px;
     font-size: 0.95rem;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .nav-links a:hover {
     color: #fff;
 }
 
-/* --- HERO SECTION --- */
+/* ==========================================================================
+   3. HERO SECTION & VIDEO STYLING
+   ========================================================================== */
 .hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
     text-align: center;
-    padding: 160px 20px 80px 20px;
-    max-width: 800px;
     margin: 0 auto;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.25; /* Text contrast boost karne ke liye thoda dark rakha hai */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
 }
 
 .profile-img {
@@ -147,7 +157,9 @@ body {
     line-height: 1.6;
 }
 
-/* --- HEADINGS --- */
+/* ==========================================================================
+   4. PROJECTS GRID MODERNA
+   ========================================================================== */
 h2 {
     font-size: 1.8rem;
     font-weight: 700;
@@ -156,7 +168,6 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* --- PROJECTS GRID --- */
 .projects-section {
     padding: 60px 10%;
     max-width: 1200px;
@@ -207,190 +218,9 @@ h2 {
     line-height: 1.5;
 }
 
-/* --- SKILLS & PROGRESS BARS --- */
-/* --- SKILL UNIVERSE SYSTEM (SHIVANSH STYLE) --- */
-.skills-section {
-    padding: 60px 10%;
-    max-width: 1200px;
-    margin: 0 auto 100px auto;
-}
-
-.universe-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 30px;
-}
-
-.sector-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    color: #666;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile par ek line mein 2 boxes */
-    gap: 16px;
-    margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(4, 1fr); /* Laptop par ek line mein 4 boxes */
-    }
-}
-
-/* BIG BOXES STYLE */
-.skill-card {
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.skill-card:hover {
-    background-color: #161616;
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-/* --- LOGO FIX: ICONS CHOTE AUR PERFECT RAHENGE --- */
-.skill-card img {
-    width: 35px;          /* Icons ka size chota aur uniform rahega */
-    height: 35px;
-    object-fit: contain;  /* Isse koi bhi photo stretch hokar kharab nahi hogi */
-    opacity: 0.6;         /* Shuruat mein clean silver-dark look */
-    filter: grayscale(100%) brightness(1.2); /* Shivansh style consistent tint */
-    transition: all 0.2s ease;
-}
-
-/* Hover ya active hone par original color chamkega */
-.skill-card:hover img {
-    opacity: 1;
-    filter: grayscale(0%) brightness(1);
-    transform: scale(1.1); /* Halka sa logo pop-up hoga */
-}
-
-.skill-card span {
-    color: #fff;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* --- DYNAMIC DETAILS PANEL (SLIDE DRAWER) --- */
-.skill-details-drawer {
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 24px;
-    margin-top: 30px;
-    display: none; /* Default mein hidden, click par khulega */
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-}
-
-.drawer-title-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.drawer-dot {
-    width: 14px;
-    height: 14px;
-    background-color: #a855f7; /* Purple colored block look */
-    border-radius: 4px;
-}
-
-#drawerSkillName {
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.drawer-close-btn {
-    background: none;
-    border: none;
-    color: #555;
-    font-size: 1.8rem;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.drawer-close-btn:hover {
-    color: #fff;
-}
-
-.drawer-category {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.drawer-description {
-    color: #a3a3a3;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-/* Card ke layout ko flex-direction column rakho */
-.skill-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 16px;
-    text-align: center;
-    overflow: hidden;
-}
-
-/* Logo aur Name ka wrapper */
-.card-main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-/* --- THE LITTLE TEXT STYLING (SHIVANSH STYLE) --- */
-.skill-inline-desc {
-    max-height: 0;        /* Shuruat mein hidden rahega */
-    opacity: 0;
-    font-size: 0.8rem;    /* Ekdum clean little text font */
-    color: #888;
-    margin-top: 0;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth down opening */
-    pointer-events: none;
-}
-
-/* Jab card par click/active hoga tab ye class add hogi JS se */
-.skill-card.show-desc .skill-inline-desc {
-    max-height: 50px;     /* Little text smoothly sliding down */
-    opacity: 1;
-    margin-top: 10px;
-    color: #22c55e;       /*  highlight color */
-}/* --- SKILL UNIVERSE GENERAL LAYOUT --- */
+/* ==========================================================================
+   5. SKILL UNIVERSE SYSTEM 
+   ========================================================================== */
 .skills-section {
     padding: 60px 10%;
     max-width: 1200px;
@@ -405,7 +235,6 @@ h2 {
     letter-spacing: -1px;
 }
 
-/* TABS BUTTONS (PILLS) */
 .skills-tabs {
     display: flex;
     gap: 12px;
@@ -431,151 +260,12 @@ h2 {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* CARDS GRID SYSTEM */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile layout */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 16px;
 }
 
-@media (min-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(4, 1fr); /* Laptop layout */
-    }
-}
-
-/* INDIVIDUAL SQUARE CARDS */
-.skill-card {
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 26px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    text-align: center;
-}
-
-.skill-card:hover {
-    background-color: #161616;
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.card-main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-/* FIXING UNIFORM ICON SIZES */
-.skill-card img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    opacity: 0.7;
-    filter: grayscale(100%) brightness(1.2); /* Premium unified look */
-    transition: all 0.2s ease;
-}
-
-.skill-card:hover img {
-    opacity: 1;
-    filter: grayscale(0%) brightness(1);
-}
-
-.skill-card span {
-    color: #fff;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* --- THE INLINE INFO DROPDOWN --- */
-.skill-inline-info {
-    max-height: 0;
-    opacity: 0;
-    font-size: 0.8rem;
-    color: #aaa;
-    line-height: 1.5;
-    margin-top: 0;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-}
-
-/* Active class dynamically added via JS */
-.skill-card.active-info {
-    border-color: #22c55e !important; /* Premium green indicator */
-    background-color: #141414;
-}
-
-.skill-card.active-info .skill-inline-info {
-    max-height: 80px; /* Smooth drop opening */
-    opacity: 1;
-    margin-top: 15px;
-}
-
-.skill-card.active-info img {
-    filter: grayscale(0%) brightness(1);
-    opacity: 1;
-}
-/* --- SKILL UNIVERSE LAYOUT SYSTEM --- */
-.skills-section {
-    padding: 60px 10%;
-    max-width: 1200px;
-    margin: 0 auto 100px auto;
-}
-
-.universe-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 25px;
-    letter-spacing: -1px;
-}
-
-/* TABS BUTTONS */
-.skills-tabs {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 35px;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: #888;
-    padding: 10px 22px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.tab-btn:hover, .tab-btn.active {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* GRID SETUP */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
-
-@media (min-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* SQUARE CHIPS */
 .skill-card {
     background-color: #121212;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -604,7 +294,6 @@ h2 {
     gap: 12px;
 }
 
-/* UNIFORM IMAGES SYSTEM */
 .skill-card img {
     width: 36px;
     height: 36px;
@@ -625,7 +314,6 @@ h2 {
     font-weight: 500;
 }
 
-/* LITTLE DESCRIPTION DROP DOWN */
 .skill-inline-info {
     max-height: 0;
     opacity: 0;
@@ -638,9 +326,8 @@ h2 {
     overflow: hidden;
 }
 
-/* Clicking Active States */
 .skill-card.active-info {
-    border-color: #22c55e !important; /* Premium Shivansh Green Border */
+    border-color: #22c55e !important; 
     background-color: #141414;
 }
 
@@ -650,11 +337,9 @@ h2 {
     margin-top: 15px;
 }
 
-.skill-card.active-info img {
-    filter: grayscale(0%) brightness(1);
-    opacity: 1;
-}
-/* --- CONTACT SECTION STYLING --- */
+/* ==========================================================================
+   6. CONTACT FORM & SUBMIT MATRIX
+   ========================================================================== */
 .contact-section {
     padding: 80px 10%;
     max-width: 800px;
@@ -685,7 +370,6 @@ h2 {
     line-height: 1.6;
 }
 
-/* FORM LAYOUT */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -706,9 +390,9 @@ h2 {
     text-transform: uppercase;
 }
 
-/* INPUTS & TEXTAREA */
 .contact-form input, 
-.contact-form textarea {
+.contact-form textarea,
+.contact-form input[type="tel"] {
     background-color: #161616;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
@@ -720,13 +404,13 @@ h2 {
 }
 
 .contact-form input:focus, 
-.contact-form textarea:focus {
-    border-color: #22c55e; /* Green focus highlight ring */
+.contact-form textarea:focus,
+.contact-form input[type="tel"]:focus {
+    border-color: #22c55e; 
     background-color: #1a1a1a;
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
 }
 
-/* PREMIUM SUBMIT BUTTON */
 .submit-btn {
     background-color: #22c55e;
     color: #000;
@@ -746,55 +430,159 @@ h2 {
     box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
 }
 
-.submit-btn:active {
-    transform: translateY(0);
-}
 
-/* Responsive updates for mobile */
-@media (max-width: 500px) {
-    .contact-container {
-        padding: 24px;
-    }
-    .contact-title {
-        font-size: 1.8rem;
-    }
-}
-/* Direct Contact Info Icons Wrapper */
-.direct-contact-info {
+/* ==========================================================================
+   annu STYLE FLOATING DOCK & GAME BUTTON CSS
+   ========================================================================== */
+
+/* --- TOP HEADER DESIGN --- */
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    gap: 25px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    background-color: #161616;
-    padding: 15px 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: linear-gradient(to bottom, rgba(10,10,10,1) 60%, rgba(10,10,10,0));
+    z-index: 9999;
+    pointer-events: none; /* Allows scrolling underneath */
 }
 
-.info-item {
+.top-header .logo, .top-header .game-toggle-btn {
+    pointer-events: auto; /* Active clicking for elements */
+}
+
+/* --- GAME TOGGLE FEATURE BUTTON --- */
+.game-toggle-btn {
+    background: rgba(22, 22, 22, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #888;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.info-icon {
+    justify-content: center;
     font-size: 1.1rem;
-}
-
-.info-text {
-    font-size: 0.95rem;
-    color: #b3b3b3;
-    font-weight: 500;
-}
-
-/* Input design adjustment for Phone field */
-.contact-form input[type="tel"] {
-    background-color: #161616;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 14px 16px;
-    color: #fff;
-    font-size: 0.95rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
     transition: all 0.2s ease;
-    outline: none;
+}
+
+.game-toggle-btn:hover, .game-toggle-btn.active-game {
+    color: #a855f7; /* Game active hone par Purple theme light */
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+    transform: scale(1.05);
+}
+
+/* --- FLOATING BOTTOM MENU DOCK --- */
+.bottom-dock-nav {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10000;
+    width: auto;
+    max-width: 90%;
+}
+
+/* Hover dynamic status reveal text */
+.hover-text-indicator {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #555;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+/* Main Pill Bar Wrapper */
+.dock-links-container {
+    background: rgba(18, 18, 18, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 10px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.05);
+}
+
+/* Individual Icon Links */
+.dock-item {
+    color: #777;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.dock-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px) scale(1.15);
+}
+
+/* Mobile responsive alignment tweaks */
+@media (max-width: 768px) {
+    .top-header {
+        padding: 15px 5%;
+    }
+    .bottom-dock-nav {
+        bottom: 20px;
+    }
+    .dock-links-container {
+        padding: 8px 16px;
+        gap: 16px; /* Decreased gap for compact mobile sizes */
+    }
+    .dock-item {
+        font-size: 1.05rem;
+    }
+    .hero {
+        padding-top: 80px !important; /* Space so logo doesn't cover content */
+    }
+}
+/* --- EXTRA ICON FIXES FOR SKILLS & DOCK --- */
+/* --- EXTRA ICON FIXES FOR SKILLS & DOCK --- */
+.skill-card svg {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.skill-card:hover svg,
+.skill-card.active-info svg {
+    opacity: 1;
+    stroke: #22c55e !important; /* Active hone par green border highlight */
+}
+
+/* Dock icons mobile sizing alignment fix */
+/* --- DOCK ICONS FIX --- */
+.dock-item i {
+    font-size: 1.4rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .dock-item i {
+        font-size: 1.1rem !important; /* Mobile ke liye safe size */
+    }
 }
