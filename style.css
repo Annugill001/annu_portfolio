@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. GOOGLE FONTS & GLOBAL RESET
+1. GOOGLE FONTS & GLOBAL RESET
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');
 
@@ -122,67 +122,62 @@ body {
 }
 
 /* ==========================================================================
-   3. HERO SECTION & VIDEO STYLING
+   3. HERO SECTION & PHOTO STYLING (STYLISH DIRECT ON PIC - NO BLACK BOX)
    ========================================================================== */
 .hero {
     position: relative;
     width: 100%;
-    height: 80vh; 
+    height: 100vh; 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Text ko side layout dene ke liye start kiya */
     overflow: hidden;
-    padding: 0;
-    text-align: center;
+    padding: 0 10%; /* Side spacing taaki text screen se chipke na */
     margin: 0 auto;
 }
 
 .hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    object-fit: cover;
-    opacity: 0.25;
+    display: none; 
 }
 
+/* Photo poore section mein perfectly full stretch rahegi */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1;
+}
+
+/* STYLISH INFO: Bina kisi black box ke direct photo ke upar clean modern look */
 .hero-content {
     position: relative;
-    z-index: 2; 
-    text-align: center;
-    padding: 20px;
-    max-width: 800px;
-}
-
-.profile-img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    z-index: 3; 
+    text-align: left; /* Pure stylish edge look ke liye left-align kiya */
+    max-width: 650px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    color: #fff;
-    margin-bottom: 15px;
-    line-height: 1.1;
+    font-size: clamp(3rem, 6vw, 5rem); /* Responsive typography jo desktop par ekdum solid dikhegi */
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #ffffff;
+    margin-bottom: 18px;
+    line-height: 1.05;
+    /* Text pop-out glow taaki bina kisi black boundary ke pic ke upar text chamke */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.4); 
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: #888;
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: #f0f0f0; 
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.2px;
+    /* Subtitle text shadow overlay */
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
 }
 
 /* ==========================================================================
@@ -200,6 +195,9 @@ h2 {
     padding: 60px 10%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 4; 
+    background-color: #0a0a0a;
 }
 
 .projects-grid {
@@ -463,18 +461,18 @@ h2 {
    ========================================================================== */
 
 /* --- PREMIUM HEADER (LOGO + GAME CONTROLLER) --- */
-        .top-header {
-            position: absolute; /* Fixed se Absolute kar diya taaki scroll ke sath upar chala jaye */
-            top: 20px;          /* Mobile par spacing behtar karne ke liye thoda upar kiya */
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;   /* Mobile ke edges ke hisab se padding clean ki */
-            z-index: 9999;
-            pointer-events: none; 
-        }
+.top-header {
+    position: absolute; 
+    top: 20px;          
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;   
+    z-index: 9999;
+    pointer-events: none; 
+}
 
 .top-header .logo, .top-header .game-toggle-btn {
     pointer-events: auto;
@@ -575,7 +573,7 @@ h2 {
     .bottom-dock-nav { bottom: 20px; }
     .dock-links-container { padding: 8px 16px; gap: 16px; }
     .dock-item { font-size: 1.05rem; }
-    .hero { padding-top: 80px !important; }
+    .hero { padding-top: 80px !important; padding-left: 5% !important; }
 }
 
 .skill-card svg {
@@ -705,6 +703,7 @@ h2 {
     .neon-glitch-text { font-size: 1.8rem; }
     .cyber-stats { font-size: 0.8rem; flex-direction: column; gap: 10px; }
 }
+
 /* ==========================================================================
    DIRECT CONTROLLER: SHIVANSH CURVY & COLOURFUL DYNAMIC FONTS
    ========================================================================== */
@@ -725,7 +724,7 @@ body.game-mode-active h3,
 body.game-mode-active .logo,
 body.game-mode-active .universe-title,
 body.game-mode-active .contact-title {
-    font-size: 4rem !important; /* Cursive lines ke liye perfect bada size */
+    font-size: 4rem !important; 
     font-weight: 400 !important;
     line-height: 1.2 !important;
     color: #fff !important;
@@ -760,78 +759,75 @@ body.game-mode-active .contact-container {
     border-color: #fff !important;
     box-shadow: 0 0 20px #ff0055 !important;
 }
+
 /* ==========================================================================
-           MOBILE RESPONSIVE FIXES FOR GAME MODE (FOR SMALL SCREENS)
-           ========================================================================== */
-        @media (max-width: 768px) {
-            /* Mobile par game mode mein headings aur logo ko control mein rakhne ke liye */
-            body.game-mode-active h1, 
-            body.game-mode-active h2, 
-            body.game-mode-active h3,
-            body.game-mode-active .project-title,
-            body.game-mode-active .universe-title {
-                font-size: 2.5rem !important; /* Mobile ke liye font size chhota kiya */
-            }
+   MOBILE RESPONSIVE FIXES FOR GAME MODE (FOR SMALL SCREENS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body.game-mode-active h1, 
+    body.game-mode-active h2, 
+    body.game-mode-active h3,
+    body.game-mode-active .project-title,
+    body.game-mode-active .universe-title {
+        font-size: 2.5rem !important; 
+    }
 
-            /* Speciifcally AnnuPortfolio Logo ko top par perfect set rakhne ke liye */
-            body.game-mode-active .logo {
-                font-size: 1.8rem !important; /* Logo ko chhota kiya taaki ek line mein aaye */
-                text-shadow: -1.5px -1.5px 0px #ff0055, 1.5px 1.5px 0px #00ffcc !important;
-            }
+    body.game-mode-active .logo {
+        font-size: 1.8rem !important; 
+        text-shadow: -1.5px -1.5px 0px #ff0055, 1.5px 1.5px 0px #00ffcc !important;
+    }
 
-            /* Game mode active hone par text paragraphs ko chhota rakhna taaki scroll mess na ho */
-            body.game-mode-active p,
-            body.game-mode-active span,
-            body.game-mode-active a,
-            body.game-mode-active label {
-                font-size: 1.2rem !important; /* Paragraphs text perfect compact size */
-            }
+    body.game-mode-active p,
+    body.game-mode-active span,
+    body.game-mode-active a,
+    body.game-mode-active label {
+        font-size: 1.2rem !important; 
+    }
 
-/* --- PREMIUM HEADER (ONLY LOGO - SCROLLS UP AWAY) --- */
-        .top-header {
-            position: absolute; /* Lock! Ab ye 100% scroll ke sath upar gayab ho jayega */
-            top: 20px;
-            left: 0;
-            width: 100%;
-            padding: 20px 8%;
-            z-index: 9998;
-            pointer-events: none; 
-        }
+    .top-header {
+        position: absolute; 
+        top: 20px;
+        left: 0;
+        width: 100%;
+        padding: 20px 8%;
+        z-index: 9998;
+        pointer-events: none; 
+    }
 
-        .logo {
-            pointer-events: auto;
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-            color: #fff;
-            display: inline-block;
-        }
+    .logo {
+        pointer-events: auto;
+        font-weight: 700;
+        font-size: 1.2rem;
+        letter-spacing: -0.5px;
+        color: #fff;
+        display: inline-block;
+    }
 
-        /* --- CONTROLLER TOGGLE (INDEPENDENT FLOATING ICON) --- */
-        .game-toggle-btn {
-            position: fixed; /* Poori screen par fixed pehra dega */
-            top: 35px;       
-            right: 8%;       
-            background: rgba(18, 18, 18, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #888;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 10001; /* Content ke upar float karega */
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    .game-toggle-btn {
+        position: fixed; 
+        top: 35px;       
+        right: 8%;       
+        background: rgba(18, 18, 18, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #888;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 10001; 
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-        .game-toggle-btn:hover, .game-toggle-btn.active-game {
-            color: #a855f7; 
-            border-color: rgba(168, 85, 247, 0.4);
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
-            transform: scale(1.05);
-        }
+    .game-toggle-btn:hover, .game-toggle-btn.active-game {
+        color: #a855f7; 
+        border-color: rgba(168, 85, 247, 0.4);
+        box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+        transform: scale(1.05);
+    }
+}
