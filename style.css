@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. GOOGLE FONTS & GLOBAL RESET
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -11,17 +11,45 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* !important rules backup fallback system fonts on mobile devices */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    transition: font-family 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ==========================================================================
+   GAME MODE ACTIVE HONE PAR DYNAMIC FONTS & THEME CHANGES (RHODANIEN OVERRIDE)
+   ========================================================================== */
+body.game-mode-active * {
+    font-family: 'Orbitron', 'Courier New', monospace !important;
+}
+
+body.game-mode-active {
+    background-color: #030303 !important;
+}
+
+body.game-mode-active h1, 
+body.game-mode-active h2, 
+body.game-mode-active .logo {
+    background: linear-gradient(to right, #ff0055, #a855f7, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+}
+
+body.game-mode-active .card, 
+body.game-mode-active .skill-card, 
+body.game-mode-active .contact-container {
+    border-color: rgba(168, 85, 247, 0.3) !important;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15), inset 0 0 10px rgba(0, 255, 204, 0.05) !important;
+    background-color: #080808 !important;
 }
 
 body {
     background-color: #0a0a0a; 
     color: #ededed;
-    padding-top: 0; /* Padding navbar margin ke according set ki hai */
+    padding-top: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal side scrolling */
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
@@ -120,7 +148,7 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1;
     object-fit: cover;
-    opacity: 0.25; /* Text contrast boost karne ke liye thoda dark rakha hai */
+    opacity: 0.25;
 }
 
 .hero-content {
@@ -430,52 +458,60 @@ h2 {
     box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
 }
 
-
 /* ==========================================================================
-   annu STYLE FLOATING DOCK & GAME BUTTON CSS
+   UPGRADED: Rhodanien FLOATING DOCK & HIGH-LEVEL NEON GAME ICON
    ========================================================================== */
 
-/* --- TOP HEADER DESIGN --- */
-.top-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background: linear-gradient(to bottom, rgba(10,10,10,1) 60%, rgba(10,10,10,0));
-    z-index: 9999;
-    pointer-events: none; /* Allows scrolling underneath */
-}
+/* --- PREMIUM HEADER (LOGO + GAME CONTROLLER) --- */
+        .top-header {
+            position: absolute; /* Fixed se Absolute kar diya taaki scroll ke sath upar chala jaye */
+            top: 20px;          /* Mobile par spacing behtar karne ke liye thoda upar kiya */
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;   /* Mobile ke edges ke hisab se padding clean ki */
+            z-index: 9999;
+            pointer-events: none; 
+        }
 
 .top-header .logo, .top-header .game-toggle-btn {
-    pointer-events: auto; /* Active clicking for elements */
+    pointer-events: auto;
 }
 
-/* --- GAME TOGGLE FEATURE BUTTON --- */
+/* --- UPGRADED HIGH-OCTANE GLOWING GAME ICON --- */
 .game-toggle-btn {
-    background: rgba(22, 22, 22, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #888;
-    width: 42px;
-    height: 42px;
+    background: #111;
+    border: 2px solid #ff0055;
+    color: #ff0055;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     cursor: pointer;
     backdrop-filter: blur(8px);
-    transition: all 0.2s ease;
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.4), inset 0 0 8px rgba(255, 0, 85, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.game-toggle-btn:hover, .game-toggle-btn.active-game {
-    color: #a855f7; /* Game active hone par Purple theme light */
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
-    transform: scale(1.05);
+.game-toggle-btn:hover {
+    transform: scale(1.15) rotate(15deg);
+    color: #00ffcc;
+    border-color: #00ffcc;
+    box-shadow: 0 0 20px #00ffcc, inset 0 0 8px rgba(0, 255, 204, 0.3);
+}
+
+/* Toggle state jab game active ho */
+.game-toggle-btn.active-game {
+    background: linear-gradient(135deg, #ff0055, #a855f7);
+    color: #fff !important;
+    border-color: #fff !important;
+    box-shadow: 0 0 25px #a855f7, 0 0 10px #ff0055;
+    transform: scale(1.1) rotate(-10deg);
 }
 
 /* --- FLOATING BOTTOM MENU DOCK --- */
@@ -493,7 +529,6 @@ h2 {
     max-width: 90%;
 }
 
-/* Hover dynamic status reveal text */
 .hover-text-indicator {
     font-size: 10px;
     text-transform: uppercase;
@@ -503,7 +538,6 @@ h2 {
     transition: color 0.2s ease;
 }
 
-/* Main Pill Bar Wrapper */
 .dock-links-container {
     background: rgba(18, 18, 18, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -517,7 +551,6 @@ h2 {
     box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.05);
 }
 
-/* Individual Icon Links */
 .dock-item {
     color: #777;
     font-size: 1.2rem;
@@ -537,27 +570,14 @@ h2 {
     transform: translateY(-4px) scale(1.15);
 }
 
-/* Mobile responsive alignment tweaks */
 @media (max-width: 768px) {
-    .top-header {
-        padding: 15px 5%;
-    }
-    .bottom-dock-nav {
-        bottom: 20px;
-    }
-    .dock-links-container {
-        padding: 8px 16px;
-        gap: 16px; /* Decreased gap for compact mobile sizes */
-    }
-    .dock-item {
-        font-size: 1.05rem;
-    }
-    .hero {
-        padding-top: 80px !important; /* Space so logo doesn't cover content */
-    }
+    .top-header { padding: 15px 5%; }
+    .bottom-dock-nav { bottom: 20px; }
+    .dock-links-container { padding: 8px 16px; gap: 16px; }
+    .dock-item { font-size: 1.05rem; }
+    .hero { padding-top: 80px !important; }
 }
-/* --- EXTRA ICON FIXES FOR SKILLS & DOCK --- */
-/* --- EXTRA ICON FIXES FOR SKILLS & DOCK --- */
+
 .skill-card svg {
     width: 36px;
     height: 36px;
@@ -569,11 +589,9 @@ h2 {
 .skill-card:hover svg,
 .skill-card.active-info svg {
     opacity: 1;
-    stroke: #22c55e !important; /* Active hone par green border highlight */
+    stroke: #22c55e !important;
 }
 
-/* Dock icons mobile sizing alignment fix */
-/* --- DOCK ICONS FIX --- */
 .dock-item i {
     font-size: 1.4rem !important;
     display: flex;
@@ -582,7 +600,238 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .dock-item i {
-        font-size: 1.1rem !important; /* Mobile ke liye safe size */
-    }
+    .dock-item i { font-size: 1.1rem !important; }
 }
+
+/* ==========================================================================
+   RHODANIEN / CYBERPUNK COLORFUL GAME OVERLAY
+   ========================================================================== */
+#cyberGameOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 3, 3, 0.97);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(25px);
+}
+
+#cyberGameOverlay.visible-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cyber-container {
+    text-align: center;
+    padding: 50px 40px;
+    border: 2px solid #00ffcc;
+    background: #000;
+    border-radius: 24px;
+    box-shadow: 0 0 40px rgba(0, 255, 204, 0.25), inset 0 0 20px rgba(255, 0, 85, 0.15);
+    max-width: 540px;
+    width: 90%;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#cyberGameOverlay.visible-overlay .cyber-container {
+    transform: scale(1);
+}
+
+.neon-glitch-text {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #00ffcc, #ff0055);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+    animation: neonGlowPulse 2s infinite alternate;
+}
+
+.cyber-subtext {
+    color: #a855f7;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+    font-weight: bold;
+}
+
+.cyber-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 35px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.cyber-close-btn {
+    background: linear-gradient(135deg, #00ffcc, #a855f7);
+    color: #000;
+    border: none;
+    padding: 16px 36px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+    transition: all 0.2s ease;
+}
+
+.cyber-close-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+    background: linear-gradient(135deg, #ff0055, #00ffcc);
+    color: #fff;
+}
+
+@keyframes neonGlowPulse {
+    0% { filter: drop-shadow(0 0 5px rgba(0, 255, 204, 0.6)); }
+    100% { filter: drop-shadow(0 0 15px rgba(255, 0, 85, 0.8)); }
+}
+
+@media (max-width: 768px) {
+    .neon-glitch-text { font-size: 1.8rem; }
+    .cyber-stats { font-size: 0.8rem; flex-direction: column; gap: 10px; }
+}
+/* ==========================================================================
+   DIRECT CONTROLLER: SHIVANSH CURVY & COLOURFUL DYNAMIC FONTS
+   ========================================================================== */
+
+/* 1. Google Calligraphy Cursive Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+/* 2. GAME MODE ACTIVE STATE: Pure layout ka font badalne ke liye */
+body.game-mode-active * {
+    font-family: 'Alex Brush', cursive !important;
+    transition: font-family 0.2s ease, text-shadow 0.2s ease !important;
+}
+
+/* Headings par pink aur cyan ka exact drop shadow overlay (Pic 2 Style) */
+body.game-mode-active h1, 
+body.game-mode-active h2, 
+body.game-mode-active h3,
+body.game-mode-active .logo,
+body.game-mode-active .universe-title,
+body.game-mode-active .contact-title {
+    font-size: 4rem !important; /* Cursive lines ke liye perfect bada size */
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    color: #fff !important;
+    text-shadow: 
+        -3px -3px 0px #ff0055, 
+        3px 3px 0px #00ffcc,
+        0 0 15px rgba(255, 0, 85, 0.6) !important;
+}
+
+/* Paragraphs, links aur normal descriptive words ke liye */
+body.game-mode-active p,
+body.game-mode-active span,
+body.game-mode-active a,
+body.game-mode-active label {
+    font-size: 1.9rem !important;
+    color: #00ffcc !important;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.6) !important;
+}
+
+/* Card layouts aur forms ke borders ko game-vibes dena */
+body.game-mode-active .card,
+body.game-mode-active .skill-card,
+body.game-mode-active .contact-container {
+    border-color: #ff0055 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.25) !important;
+}
+
+/* Jab game mode ON ho toh icon khud high-glow active state mein dikhe */
+.game-toggle-btn.active-game {
+    background: linear-gradient(135deg, #ff0055, #00ffcc) !important;
+    color: #000 !important;
+    border-color: #fff !important;
+    box-shadow: 0 0 20px #ff0055 !important;
+}
+/* ==========================================================================
+           MOBILE RESPONSIVE FIXES FOR GAME MODE (FOR SMALL SCREENS)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            /* Mobile par game mode mein headings aur logo ko control mein rakhne ke liye */
+            body.game-mode-active h1, 
+            body.game-mode-active h2, 
+            body.game-mode-active h3,
+            body.game-mode-active .project-title,
+            body.game-mode-active .universe-title {
+                font-size: 2.5rem !important; /* Mobile ke liye font size chhota kiya */
+            }
+
+            /* Speciifcally AnnuPortfolio Logo ko top par perfect set rakhne ke liye */
+            body.game-mode-active .logo {
+                font-size: 1.8rem !important; /* Logo ko chhota kiya taaki ek line mein aaye */
+                text-shadow: -1.5px -1.5px 0px #ff0055, 1.5px 1.5px 0px #00ffcc !important;
+            }
+
+            /* Game mode active hone par text paragraphs ko chhota rakhna taaki scroll mess na ho */
+            body.game-mode-active p,
+            body.game-mode-active span,
+            body.game-mode-active a,
+            body.game-mode-active label {
+                font-size: 1.2rem !important; /* Paragraphs text perfect compact size */
+            }
+
+/* --- PREMIUM HEADER (ONLY LOGO - SCROLLS UP AWAY) --- */
+        .top-header {
+            position: absolute; /* Lock! Ab ye 100% scroll ke sath upar gayab ho jayega */
+            top: 20px;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            z-index: 9998;
+            pointer-events: none; 
+        }
+
+        .logo {
+            pointer-events: auto;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            display: inline-block;
+        }
+
+        /* --- CONTROLLER TOGGLE (INDEPENDENT FLOATING ICON) --- */
+        .game-toggle-btn {
+            position: fixed; /* Poori screen par fixed pehra dega */
+            top: 35px;       
+            right: 8%;       
+            background: rgba(18, 18, 18, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #888;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10001; /* Content ke upar float karega */
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .game-toggle-btn:hover, .game-toggle-btn.active-game {
+            color: #a855f7; 
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+            transform: scale(1.05);
+        }

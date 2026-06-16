@@ -27,7 +27,7 @@
         body {
             background-color: #0a0a0a; 
             color: #ededed;
-            padding-bottom: 100px; /* Space for the bottom floating dock */
+            padding-bottom: 100px; 
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -46,11 +46,11 @@
         body.game-mode-active .logo,
         body.game-mode-active .project-title,
         body.game-mode-active .universe-title {
-            font-size: 4rem !important;
+            font-size: 4.5rem !important; 
             font-weight: 400 !important;
-            line-height: 1.2 !important;
+            line-height: 1.4 !important; 
             color: #fff !important;
-            /* Multi-layer high octane custom neon drop-shadow gradient text effect */
+            padding-bottom: 10px; 
             text-shadow: 
                 -3px -3px 0px #ff0055, 
                 3px 3px 0px #00ffcc,
@@ -107,34 +107,38 @@
             box-shadow: 0 0 8px #22c55e;
         }
 
-        /* --- PREMIUM HEADER (LOGO + GAME CONTROLLER) --- */
+        /* --- ONLY LOGO HEADER (SCROLLS UP AND OUT) --- */
         .top-header {
-            position: fixed;
-            top: 40px; 
+            position: absolute; 
+            top: 60px; /* Partition line se achhi khasi niche space de di hai */
             left: 0;
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 20px 10%;
-            z-index: 9999;
+            z-index: 9998;
             pointer-events: none; 
         }
 
-        .top-header .logo, 
-        .top-header .game-toggle-btn {
-            pointer-events: auto; 
-        }
-
+        /* Normal mode mein heading ko super attractive aur bold high-tech look diya */
         .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-            color: #fff;
+            pointer-events: auto;
+            font-family: 'Courier New', Courier, monospace !important; /* Premium Dev vibe */
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffffff;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+            background: linear-gradient(90deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* --- SHIVANSH CONTROLLER TOGGLE FEATURE --- */
+        /* --- FLOATING CONTROLLER TOGGLE (ALWAYS FIXED ON SCREEN) --- */
         .game-toggle-btn {
+            position: fixed; 
+            top: 72px; /* Logo ke sath balance karne ke liye thoda niche kiya */
+            right: 10%;
             background: rgba(18, 18, 18, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
             color: #888;
@@ -148,6 +152,7 @@
             cursor: pointer;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            z-index: 10001; 
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -227,7 +232,7 @@
         /* --- HERO COMPONENT --- */
         .hero {
             text-align: center;
-            padding: 160px 20px 80px 20px;
+            padding: 210px 20px 80px 20px; /* Spacer adjusted to match the lower logo shift */
             max-width: 800px;
             margin: 0 auto;
         }
@@ -614,9 +619,49 @@
             transform: translateY(-2px);
         }
 
+        /* ==========================================================================
+           MOBILE RESPONSIVE FIXES FOR GAME MODE & FLOATING ICON
+           ========================================================================== */
         @media (max-width: 768px) {
             .cyber-box h2 { font-size: 1.75rem !important; }
             .cyber-box { padding: 30px 20px; }
+
+            body.game-mode-active h1, 
+            body.game-mode-active h2, 
+            body.game-mode-active h3,
+            body.game-mode-active .project-title,
+            body.game-mode-active .universe-title {
+                font-size: 2.8rem !important; 
+                line-height: 1.4 !important;
+            }
+
+            body.game-mode-active .logo {
+                font-size: 2rem !important; 
+                line-height: 1.4 !important;
+                text-shadow: -1.5px -1.5px 0px #ff0055, 1.5px 1.5px 0px #00ffcc !important;
+            }
+
+            body.game-mode-active p,
+            body.game-mode-active span,
+            body.game-mode-active a,
+            body.game-mode-active label {
+                font-size: 1.2rem !important;
+            }
+
+            .top-header {
+                position: absolute !important;
+                top: 35px; /* Mobile par bhi thoda niche push kiya */
+                padding: 15px 6%;
+            }
+
+            .game-toggle-btn {
+                position: fixed !important;
+                top: 42px !important; /* Fixed icon aligned along with logo on mobile */
+                right: 6% !important;
+                width: 38px !important;
+                height: 38px !important;
+                font-family: inherit !important;
+            }
         }
     </style>
 </head>
@@ -632,7 +677,6 @@
                 <span style="color: #00ffcc;">MANA: 99%</span>
                 <span style="color: #ffcc00;">SKILL LEVEL: MAX</span>
             </div>
-            <!-- BUTTON TEXT UPDATED SUCCESSFULLY TO TRIGGER ENTER GAME MODE -->
             <button class="cyber-btn" id="overlayCloseBtn">LETS ENTER IN GAME MODE 🚀</button>
         </div>
     </div>
@@ -644,18 +688,21 @@
         </div>
     </div>
 
+    <!-- LOGO CONTAINER (Pushed safely down from partition line) -->
     <div class="top-header">
         <div class="logo">AnnuPortfolio</div>
-        <button class="game-toggle-btn" id="gameToggle">
-            <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;">
-                <line x1="6" y1="12" x2="10" y2="12"></line>
-                <line x1="8" y1="10" x2="8" y2="14"></line>
-                <line x1="15" y1="13" x2="15.01" y2="13"></line>
-                <line x1="18" y1="11" x2="18.01" y2="11"></line>
-                <rect x="2" y="6" width="20" height="12" rx="3"></rect>
-            </svg>
-        </button>
     </div>
+
+    <!-- INDEPENDENT FLOATING BUTTON -->
+    <button class="game-toggle-btn" id="gameToggle">
+        <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;">
+            <line x1="6" y1="12" x2="10" y2="12"></line>
+            <line x1="8" y1="10" x2="8" y2="14"></line>
+            <line x1="15" y1="13" x2="15.01" y2="13"></line>
+            <line x1="18" y1="11" x2="18.01" y2="11"></line>
+            <rect x="2" y="6" width="20" height="12" rx="3"></rect>
+        </svg>
+    </button>
 
     <nav class="bottom-dock-nav">
         <div class="hover-text-indicator" id="dockIndicator">EXPLORE PORTFOLIO</div>
@@ -790,40 +837,31 @@
             const customOverlay = document.getElementById("customCyberOverlay");
             const overlayCloseBtn = document.getElementById("overlayCloseBtn");
 
-            // --- FUNCTION TO CONTROL GAME MODE ---
             function executeGameToggle() {
                 const isAlreadyOn = document.body.classList.contains("game-mode-active");
 
                 if (!isAlreadyOn) {
-                    // Step A: Pehle beautiful popup slide in hoga
                     customOverlay.classList.add("show-popup");
-                    document.body.style.overflow = "hidden"; // background scroll locked
+                    document.body.style.overflow = "hidden"; 
                 } else {
-                    // Step B: Game mode active hone par direct reset safely
                     document.body.classList.remove("game-mode-active");
                     gameToggle.classList.remove("active-game");
                 }
             }
 
-            // Game icon click trigger
             if (gameToggle) {
                 gameToggle.addEventListener("click", executeGameToggle);
             }
 
-            // Popup button click event handler
             if (overlayCloseBtn) {
                 overlayCloseBtn.addEventListener("click", () => {
-                    // Popup overlay smooth hat jayega
                     customOverlay.classList.remove("show-popup");
-                    document.body.style.overflow = "auto"; // scrolling unlocked
-
-                    // Booom! Poori website instant Curvy & Colorful design me badal jayegi
+                    document.body.style.overflow = "auto"; 
                     document.body.classList.add("game-mode-active");
                     gameToggle.classList.add("active-game");
                 });
             }
 
-            // --- DOCK TEXT CONTROLLER ---
             const dockIndicator = document.getElementById("dockIndicator");
             const dockItems = document.querySelectorAll(".dock-item");
 
@@ -841,7 +879,6 @@
             });
         });
 
-        // Toggle info blocks
         function toggleCardInfo(cardElement) {
             cardElement.classList.toggle('active-info');
         }
