@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css">
    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap');
+        /* --- GOOGLE FONTS IMPORT (INTER + SHIVANSH STYLE CURVY ALEX BRUSH) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Alex+Brush&display=swap');
         
         /* --- GLOBAL RESETS --- */
         html {
@@ -20,6 +21,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            transition: font-family 0.25s ease, text-shadow 0.25s ease, color 0.2s ease;
         }
 
         body {
@@ -28,6 +30,55 @@
             padding-bottom: 100px; /* Space for the bottom floating dock */
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+        }
+
+        /* ==========================================================================
+           MAGICAL SHIVANSH CURVY & COLOURFUL STYLE OVERRIDE (ACTIVE ON TAP)
+           ========================================================================== */
+        body.game-mode-active * {
+            font-family: 'Alex Brush', cursive !important;
+        }
+
+        /* Titles / Headings transformation */
+        body.game-mode-active h1, 
+        body.game-mode-active h2, 
+        body.game-mode-active h3,
+        body.game-mode-active .logo,
+        body.game-mode-active .project-title,
+        body.game-mode-active .universe-title {
+            font-size: 4rem !important;
+            font-weight: 400 !important;
+            line-height: 1.2 !important;
+            color: #fff !important;
+            /* Multi-layer high octane custom neon drop-shadow gradient text effect */
+            text-shadow: 
+                -3px -3px 0px #ff0055, 
+                3px 3px 0px #00ffcc,
+                0 0 15px rgba(255, 0, 85, 0.6) !important;
+        }
+
+        /* Paragraphs and secondary words text glow layout */
+        body.game-mode-active p,
+        body.game-mode-active span,
+        body.game-mode-active a,
+        body.game-mode-active label {
+            font-size: 2rem !important;
+            color: #00ffcc !important;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.7) !important;
+        }
+
+        /* Box matrices adaptation */
+        body.game-mode-active .card,
+        body.game-mode-active .skill-card,
+        body.game-mode-active .contact-container {
+            border-color: #ff0055 !important;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.3) !important;
+        }
+
+        body.game-mode-active .game-toggle-btn {
+            color: #ff0055 !important;
+            border-color: #ff0055 !important;
+            box-shadow: 0 0 15px #ff0055 !important;
         }
 
         /* --- SYSTEM STATUS BAR --- */
@@ -59,7 +110,7 @@
         /* --- PREMIUM HEADER (LOGO + GAME CONTROLLER) --- */
         .top-header {
             position: fixed;
-            top: 40px; /* Placed exactly below status bar */
+            top: 40px; 
             left: 0;
             width: 100%;
             display: flex;
@@ -67,12 +118,12 @@
             align-items: center;
             padding: 20px 10%;
             z-index: 9999;
-            pointer-events: none; /* Allows click-through for background elements */
+            pointer-events: none; 
         }
 
         .top-header .logo, 
         .top-header .game-toggle-btn {
-            pointer-events: auto; /* Restores clicking capability */
+            pointer-events: auto; 
         }
 
         .logo {
@@ -155,7 +206,6 @@
             border-radius: 50%;
         }
 
-        /* SVG Icons Styling */
         .dock-item svg {
             width: 22px;
             height: 22px;
@@ -172,9 +222,7 @@
             transform: translateY(-4px) scale(1.15);
         }
 
-        .dock-item:hover svg {
-            stroke: #fff;
-        }
+        .dock-item:hover svg { stroke: #fff; }
 
         /* --- HERO COMPONENT --- */
         .hero {
@@ -323,9 +371,7 @@
         }
 
         @media (min-width: 768px) {
-            .skills-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            .skills-grid { grid-template-columns: repeat(4, 1fr); }
         }
 
         .skill-card {
@@ -399,11 +445,6 @@
             margin-top: 15px;
         }
 
-        .skill-card.active-info img, .skill-card.active-info svg {
-            filter: grayscale(0%) brightness(1);
-            opacity: 1;
-        }
-
         /* --- MATRIX CONTACT FORM --- */
         .contact-section {
             padding: 80px 10%;
@@ -439,7 +480,6 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            margin-top: 0;
         }
 
         .input-group {
@@ -468,13 +508,6 @@
             outline: none;
         }
 
-        .input-group input:focus, 
-        .input-group textarea:focus {
-            border-color: #22c55e;
-            background-color: #1a1a1a;
-            box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
-        }
-
         .submit-btn {
             background-color: #22c55e;
             color: #000;
@@ -488,72 +521,121 @@
             margin-top: 10px;
         }
 
-        .submit-btn:hover {
-            background-color: #16a34a;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+        /* ==========================================================================
+           EXACT INTERACTIVE POPUP OVERLAY LAYOUT
+           ========================================================================== */
+        #customCyberOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.93);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* ==========================================================================
-           PREMIUM SMARTPHONE VIEWPORT CONFIGURATION
-           ========================================================================== */
+        #customCyberOverlay.show-popup {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cyber-box {
+            background: #0d0d0d;
+            border: 2.5px solid #00ffcc;
+            border-radius: 28px;
+            padding: 45px 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 35px rgba(0, 255, 204, 0.3);
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #customCyberOverlay.show-popup .cyber-box {
+            transform: scale(1);
+        }
+
+        .cyber-box h2 {
+            font-size: 2.2rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 1px !important;
+            color: #fff !important;
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        .cyber-desc {
+            font-size: 0.9rem !important;
+            color: #bbb !important;
+            letter-spacing: 0.5px !important;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        .cyber-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            font-size: 0.95rem !important;
+            letter-spacing: 1px;
+        }
+
+        .cyber-btn {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 14px 40px;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .cyber-btn:hover {
+            background: linear-gradient(135deg, #ff0055, #00ffcc);
+            color: #fff !important;
+            box-shadow: 0 0 20px #ff0055;
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
-            body {
-                padding-bottom: 90px;
-            }
-
-            .top-header {
-                top: 40px;
-                padding: 15px 5%;
-            }
-
-            .bottom-dock-nav {
-                bottom: 20px;
-            }
-
-            .dock-links-container {
-                padding: 8px 16px;
-                gap: 16px; /* Perfect tight layout for fingers */
-            }
-
-            .dock-item {
-                width: 34px;
-                height: 34px;
-            }
-
-            .dock-item svg {
-                width: 18px;
-                height: 18px;
-            }
-
-            .hero {
-                padding-top: 140px; /* Safe clearing distance */
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                letter-spacing: -0.8px;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .projects-section, .skills-section {
-                padding: 40px 5%;
-            }
-
-            .contact-container {
-                padding: 24px;
-            }
-
-            .contact-title {
-                font-size: 1.8rem;
-            }
+            .cyber-box h2 { font-size: 1.75rem !important; }
+            .cyber-box { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- === SYSTEM HIGH-OCTANE OVERLAY POPUP CONTAINER === -->
+    <div id="customCyberOverlay">
+        <div class="cyber-box">
+            <h2>GAME MODE: ON</h2>
+            <p class="cyber-desc">🚀 System Injected With High-Octane Aesthetics</p>
+            <div class="cyber-metrics">
+                <span style="color: #ff0055;">HP: 100%</span>
+                <span style="color: #00ffcc;">MANA: 99%</span>
+                <span style="color: #ffcc00;">SKILL LEVEL: MAX</span>
+            </div>
+            <!-- BUTTON TEXT UPDATED SUCCESSFULLY TO TRIGGER ENTER GAME MODE -->
+            <button class="cyber-btn" id="overlayCloseBtn">LETS ENTER IN GAME MODE 🚀</button>
+        </div>
+    </div>
 
     <div class="status-bar">
         <div class="status-active">
@@ -564,7 +646,7 @@
 
     <div class="top-header">
         <div class="logo">AnnuPortfolio</div>
-        <button class="game-toggle-btn" id="gameToggle" style="padding: 0;">
+        <button class="game-toggle-btn" id="gameToggle">
             <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;">
                 <line x1="6" y1="12" x2="10" y2="12"></line>
                 <line x1="8" y1="10" x2="8" y2="14"></line>
@@ -679,66 +761,6 @@
                 </div>
                 <div class="skill-inline-info">Proficient in UI/UX wireframing, component libraries, and prototypes.</div>
             </div>
-            <div class="skill-card backend" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS">
-                    <span>Node.js</span>
-                </div>
-                <div class="skill-inline-info">Building highly scalable, asynchronous server-side web applications.</div>
-            </div>
-            <div class="skill-card backend" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" style="filter: invert(1);">
-                    <span>Express</span>
-                </div>
-                <div class="skill-inline-info">Developing robust RESTful APIs, routing configurations, and middleware.</div>
-            </div>
-            <div class="skill-card backend" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
-                    <span>MongoDB</span>
-                </div>
-                <div class="skill-inline-info">Designing NoSQL schema models and handling large data aggregations.</div>
-            </div>
-            <div class="skill-card backend" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
-                    <span>SQL</span>
-                </div>
-                <div class="skill-inline-info">Writing complex relational queries, tables joins, and schema constraints.</div>
-            </div>
-            <div class="skill-card core" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
-                    <span>C Language</span>
-                </div>
-                <div class="skill-inline-info">Strong grip on low-level memory management, allocation, and pointers.</div>
-            </div>
-            <div class="skill-card core" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                    <span>Java</span>
-                </div>
-                <div class="skill-inline-info">Solid foundation in Object-Oriented Programming (OOP) architectures.</div>
-            </div>
-            <div class="skill-card core" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <img src="https://img.icons8.com/color/48/autodesk-autocad.png" alt="AutoCAD">
-                    <span>AutoCAD</span>
-                </div>
-                <div class="skill-inline-info">Engineering 2D drafting models, mechanical layouts, and blueprint designs.</div>
-            </div>
-            <div class="skill-card core" onclick="toggleCardInfo(this)">
-                <div class="card-main-content">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="dsa-icon" style="fill: none; stroke: #22c55e; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                    <span>DSA</span>
-                </div>
-                <div class="skill-inline-info">Implementing optimal data structures and efficient time-complexity algorithms.</div>
-            </div>
         </div>
     </section>
 
@@ -752,141 +774,77 @@
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" placeholder="John Doe" required>
                 </div>
-                
                 <div class="input-group">
                     <label for="email">Your Email</label>
                     <input type="email" id="email" name="_replyto" placeholder="john@example.com" required>
                 </div>
-
-                <div class="input-group">
-                    <label for="phone">Contact Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
-                </div>
-                
-                <div class="input-group">
-                    <label for="message">Your message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                </div>
-                
                 <button type="submit" class="submit-btn">Send Message 🚀</button>
             </form>
         </div>
-
-        <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center;">
-            <div style="background: #121212; border: 1px solid #22c55e; padding: 40px 30px; border-radius: 20px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2); transform: scale(0.9); transition: all 0.3s ease;">
-                <div style="font-size: 50px; margin-bottom: 15px;">🎉</div>
-                <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 10px; font-weight: 700;">Congratulations!</h3>
-                <p style="color: #aaa; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">Your message has been successfully sent. Annu will get back to you shortly!</p>
-                <button onclick="closeModal()" style="background: #22c55e; color: #000; border: none; padding: 12px 30px; font-size: 1rem; font-weight: bold; border-radius: 50px; cursor: pointer; width: 100%; transition: 0.2s;">Awesome 🚀</button>
-            </div>
-        </div>
     </section>
 
+    <!-- === ALL INTERACTIVE PORTFOLIO ENGINE SCRIPTS === -->
     <script>
-        // 1. SKILLS UNIVERSE FILTER ENGINE
-        function filterUniverse(category) {
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if(window.event) {
-                window.event.target.classList.add('active');
+        document.addEventListener("DOMContentLoaded", () => {
+            const gameToggle = document.getElementById("gameToggle");
+            const customOverlay = document.getElementById("customCyberOverlay");
+            const overlayCloseBtn = document.getElementById("overlayCloseBtn");
+
+            // --- FUNCTION TO CONTROL GAME MODE ---
+            function executeGameToggle() {
+                const isAlreadyOn = document.body.classList.contains("game-mode-active");
+
+                if (!isAlreadyOn) {
+                    // Step A: Pehle beautiful popup slide in hoga
+                    customOverlay.classList.add("show-popup");
+                    document.body.style.overflow = "hidden"; // background scroll locked
+                } else {
+                    // Step B: Game mode active hone par direct reset safely
+                    document.body.classList.remove("game-mode-active");
+                    gameToggle.classList.remove("active-game");
+                }
             }
 
-            const cards = document.querySelectorAll('.skill-card');
-            cards.forEach(card => {
-                card.classList.remove('active-info');
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+            // Game icon click trigger
+            if (gameToggle) {
+                gameToggle.addEventListener("click", executeGameToggle);
+            }
 
-        // 2. TOGGLE SKILL CARD SPECIFICS 
-        function toggleCardInfo(cardElement) {
-            const allCards = document.querySelectorAll('.skill-card');
-            allCards.forEach(c => {
-                if (c !== cardElement) c.classList.remove('active-info');
+            // Popup button click event handler
+            if (overlayCloseBtn) {
+                overlayCloseBtn.addEventListener("click", () => {
+                    // Popup overlay smooth hat jayega
+                    customOverlay.classList.remove("show-popup");
+                    document.body.style.overflow = "auto"; // scrolling unlocked
+
+                    // Booom! Poori website instant Curvy & Colorful design me badal jayegi
+                    document.body.classList.add("game-mode-active");
+                    gameToggle.classList.add("active-game");
+                });
+            }
+
+            // --- DOCK TEXT CONTROLLER ---
+            const dockIndicator = document.getElementById("dockIndicator");
+            const dockItems = document.querySelectorAll(".dock-item");
+
+            dockItems.forEach(item => {
+                const showName = () => {
+                    dockIndicator.innerText = item.getAttribute("data-name");
+                    dockIndicator.style.color = "#22c55e"; 
+                };
+                const resetName = () => {
+                    dockIndicator.innerText = "EXPLORE PORTFOLIO";
+                    dockIndicator.style.color = "#666";
+                };
+                item.addEventListener("mouseenter", showName);
+                item.addEventListener("mouseleave", resetName);
             });
+        });
+
+        // Toggle info blocks
+        function toggleCardInfo(cardElement) {
             cardElement.classList.toggle('active-info');
         }
-
-        // 3. SHIVANSH STYLE DOCK DYNAMIC TEXT ENGINE
-        const dockIndicator = document.getElementById("dockIndicator");
-        const dockItems = document.querySelectorAll(".dock-item");
-
-        dockItems.forEach(item => {
-            const triggerIn = () => {
-                const targetName = item.getAttribute("data-name");
-                dockIndicator.innerText = targetName;
-                dockIndicator.style.color = "#22c55e"; 
-            };
-
-            const triggerOut = () => {
-                dockIndicator.innerText = "EXPLORE PORTFOLIO";
-                dockIndicator.style.color = "#666";
-            };
-
-            item.addEventListener("mouseenter", triggerIn);
-            item.addEventListener("mouseleave", triggerOut);
-            item.addEventListener("touchstart", triggerIn);
-            item.addEventListener("touchend", triggerOut);
-        });
-
-        // 4. CONTROLLER GAME BUTTON MATRIX ACTION
-        const gameToggle = document.getElementById("gameToggle");
-        gameToggle.addEventListener("click", () => {
-            gameToggle.classList.toggle("active-game");
-            if(gameToggle.classList.contains("active-game")) {
-                alert("🎮 Game Feature Activated! Ab aap future mein yahan canvas shooter ya retro snake game inject kar sakti hain.");
-            }
-        });
-
-        // 5. SUCCESS MODAL CLOSING TRIGGER
-        function closeModal() {
-            document.getElementById("successModal").style.display = "none";
-        }
-
-        // 6. ASYNCHRONOUS FORM SUBMISSION WITH SECURE MODAL DISPATCH
-        document.getElementById("myContactForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
-            
-            const form = event.target;
-            const button = form.querySelector(".submit-btn");
-            
-            button.innerText = "Sending... ⏳";
-            button.disabled = true;
-
-            const formData = new FormData(form);
-
-            fetch("https://formspree.io/f/xkoayokq", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    button.innerText = "Send Message 🚀";
-                    button.disabled = false;
-                    form.reset(); 
-                    
-                    const modal = document.getElementById("successModal");
-                    modal.style.display = "flex";
-                } else {
-                    alert("Oops! Formspree configuration error detected.");
-                    button.innerText = "Send Message 🚀";
-                    button.disabled = false;
-                }
-            })
-            .catch(error => {
-                alert("Network latency error!");
-                button.innerText = "Send Message 🚀";
-                button.disabled = false;
-            });
-        });
     </script>
 </body>
 </html>
