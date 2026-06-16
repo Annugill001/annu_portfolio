@@ -134,6 +134,7 @@ body {
     overflow: hidden;
     padding: 0 10%; /* Side spacing taaki text screen se chipke na */
     margin: 0 auto;
+    background: radial-gradient(circle at center, rgba(17, 17, 17, 0.2) 0%, #0a0a0a 100%);
 }
 
 .hero-video {
@@ -149,6 +150,8 @@ body {
     height: 100%;
     object-fit: cover; 
     z-index: 1;
+    opacity: 0.45; /* Photo halki background me rahegi taaki text dominate kare */
+    pointer-events: none;
 }
 
 /* STYLISH INFO: Bina kisi black box ke direct photo ke upar clean modern look */
