@@ -973,7 +973,7 @@ function filterUniverse(category) {
 
                 <div class="input-group">
                     <label for="phone">Contact Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+91 10 digit mobile number">
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXXXXXXX">
                 </div>
                 
                 <div class="input-group">
@@ -1002,12 +1002,14 @@ function filterUniverse(category) {
             const customOverlay = document.getElementById("customCyberOverlay");
             const overlayCloseBtn = document.getElementById("overlayCloseBtn");
 
+            // --- EDITED GAME TOGGLE (DIRECT CHANGE NO POPUP) ---
             function executeGameToggle() {
                 const isAlreadyOn = document.body.classList.contains("game-mode-active");
 
                 if (!isAlreadyOn) {
-                    customOverlay.classList.add("show-popup");
-                    document.body.style.overflow = "hidden"; 
+                    // Ab click karte hi bina popup ke direct game mode active hoga
+                    document.body.classList.add("game-mode-active");
+                    gameToggle.classList.add("active-game");
                 } else {
                     document.body.classList.remove("game-mode-active");
                     gameToggle.classList.remove("active-game");
