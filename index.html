@@ -954,6 +954,8 @@ function filterUniverse(category) {
 </script>
 
     <section class="contact-section" id="contact">
+        
+<form class="contact-form" action="https://formspree.io/f/xkoayokq" method="POST">
         <div class="contact-container">
             <h2 class="contact-title">Let's make something together.</h2>
             <p class="contact-subtitle">Got a project in mind? Drop a message!</p>
@@ -961,14 +963,35 @@ function filterUniverse(category) {
             <form id="myContactForm" class="contact-form">
                 <div class="input-group">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    <input type="text" id="name" name="name" placeholder="your name" required>
                 </div>
+                
                 <div class="input-group">
                     <label for="email">Your Email</label>
-                    <input type="email" id="email" name="_replyto" placeholder="john@example.com" required>
+                    <input type="email" id="email" name="_replyto" placeholder="name@example.com" required>
                 </div>
+
+                <div class="input-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 10 digit mobile number">
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">Your message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                
                 <button type="submit" class="submit-btn">Send Message 🚀</button>
             </form>
+        </div>
+
+        <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center;">
+            <div style="background: #121212; border: 1px solid #22c55e; padding: 40px 30px; border-radius: 20px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2); transform: scale(0.9); transition: all 0.3s ease;">
+                <div style="font-size: 50px; margin-bottom: 15px;">🎉</div>
+                <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 10px; font-weight: 700;">Congratulations!</h3>
+                <p style="color: #aaa; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">Your message has been successfully sent. Annu will get back to you shortly!</p>
+                <button onclick="closeModal()" style="background: #22c55e; color: #000; border: none; padding: 12px 30px; font-size: 1rem; font-weight: bold; border-radius: 50px; cursor: pointer; width: 100%; transition: 0.2s;">Awesome 🚀</button>
+            </div>
         </div>
     </section>
 
