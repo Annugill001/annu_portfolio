@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raksha | Women Safety App Detail</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ededed;
+            padding: 60px 10%;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ef4444; /* High-visibility warning/safety red accent */
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: transform 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-4px);
+        }
+
+        .project-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 30px;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+       
+        .project-hero-img {
+    width: 100%;
+    max-width: 800px;    /* Banner ko hadd se zyada bada hone se rokega */
+    height: 380px;       /* Fixed clean gaming standard height */
+    object-fit: cover;   /* Image dimensions standard baki rahegi */
+    object-position: center;
+    border-radius: 16px;
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 40px;
+    display: block;      /* Alignments symmetric rakhne ke liye */
+}
+
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .details-left h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .details-left p {
+            color: #a3a3a3;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            color: #a3a3a3;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+            font-size: 0.95rem;
+        }
+
+        .tech-box {
+            background: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            height: fit-content;
+        }
+
+        .tech-box h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: #161616;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 40px 6%; }
+            .project-title { font-size: 2.2rem; }
+            .project-hero-img { height: 250px; }
+            .project-info-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <!-- Header Section -->
+    <header class="project-header">
+        <h1 class="project-title">Raksha</h1>
+        <span class="project-tag">Women Safety & SOS System <br><h6>apni raksha kudh kro</h6></span>
+    </header>
+
+    <!-- Project Banner Image -->
+    <img src="raks_dashboard.png" alt="Raksha Safety App Banner" class="project-hero-img">
+
+    <!-- Detailed Content Layout -->
+    <div class="project-info-grid">
+        
+        <!-- Left Column: Description -->
+        <div class="details-left">
+            <h2>Overview</h2>
+            <p><strong>Raksha</strong> is a web-based emergency response ecosystem designed to provide reliable, real-time safety measures for women. The platform focuses on instant emergency tracking and streamlined communications during distress situations.</p>
+            
+            <h2>How It Works</h2>
+            <p>The application triggers an instant alarm matrix via a single-tap SOS interface. Utilizing browser geolocation parameters, the system maps out live, accurate coordinate strings and dispatches them straight to designated emergency contacts and local authorities without complex lag times.</p>
+
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li><strong>One-Tap SOS System:</strong> Instantly signals distress triggers and captures essential metadata within milliseconds.</li>
+                <li><strong>Live Geolocation Mapping:</strong> Embeds native tracking integrations to track user positions seamlessly over dynamic coordinates.</li>
+                <li><strong>Automated Alerts Framework:</strong> Broadcasts background message packets containing active help templates and precise map links.</li>
+                <li><strong>Silent Mode Execution:</strong> Features a discreet workspace overlay designed to operate subtly in high-stress tracking situations.</li>
+            </ul>
+
+            <h2>Future Scope</h2>
+            <p>Future development blueprints involve native audio detection algorithms to auto-trigger SOS via specific vocal keywords, alongside offline SMS fallback systems for zero-connectivity environments.</p>
+        </div>
+
+        <!-- Right Column: Tech Stack -->
+        <div class="tech-box">
+            <h3>Technologies Used</h3>
+            <div class="tech-tags">
+                <span class="tech-tag">HTML5 / CSS3</span>
+                <span class="tech-tag">JavaScript (ES6+)</span>
+                <span class="tech-tag">Geolocation API</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Twilio API (Concept)</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
