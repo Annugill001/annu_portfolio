@@ -719,7 +719,62 @@
     </style>
 </head>
 <body>
-
+<!--div id="cyberLoader">
+    <div class="loader-content">
+        <div class="portal-spinner">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                 onload="
+                    let count = 0; 
+                    let txt = document.getElementById('loadCount'); 
+                    let box = document.getElementById('cyberLoader');
+                    let run = setInterval(() => { 
+                        count++; 
+                        if(txt) txt.innerText = count + '%'; 
+                        if(count >= 100){ 
+                            clearInterval(run); 
+                            setTimeout(() => { if(box) box.classList.add('fade-out-pack'); }, 150); 
+                        } 
+                    }, 10);
+                 " style="display:none;">
+            
+            <div id="loadCount">0%</div>
+        </div>
+        <div class="loader-text">Welcome to Annu's Digital Universe</div>
+        <div class="loader-sub">SYSTEM STACK SECURE...</div>
+    </div>
+</div>-->
+<div id="cyberLoader">
+    <div class="loader-content">
+        <div class="portal-spinner">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                 onload="
+                    let box = document.getElementById('cyberLoader');
+                    let txt = document.getElementById('loadCount');
+                    
+                    // Agar user pehle hi aa chuka hai, toh loader ko bina dikhaye turant uda do
+                    if (sessionStorage.getItem('loaderPlayed') === 'true') {
+                        if(box) box.style.display = 'none';
+                    } else {
+                        // Agar pehli baar aya hai, toh counting chalao aur session set karo
+                        let count = 0; 
+                        let run = setInterval(() => { 
+                            count++; 
+                            if(txt) txt.innerText = count + '%'; 
+                            if(count >= 100){ 
+                                clearInterval(run); 
+                                sessionStorage.setItem('loaderPlayed', 'true'); // Session save ho gaya
+                                setTimeout(() => { if(box) box.classList.add('fade-out-pack'); }, 150); 
+                            } 
+                        }, 10);
+                    }
+                 " style="display:none;">
+            
+            <div id="loadCount">0%</div>
+        </div>
+        <div class="loader-text">ANNU.CORE</div>
+        <div class="loader-sub">SYSTEM STACK SECURE...</div>
+    </div>
+</div>
     <!-- === SYSTEM HIGH-OCTANE OVERLAY POPUP CONTAINER === -->
     <div id="customCyberOverlay">
         <div class="cyber-box">
@@ -739,6 +794,7 @@
             <span class="pulse-dot"></span>
             STATUS: ACTIVE / DEVELOPING
         </div>
+    
     </div>
 
     <!-- LOGO CONTAINER -->
@@ -795,8 +851,9 @@
     <!-- Photo ke upar aane wali info -->
     <div class="hero-content">
         <h1>Hi, I am Annu</h1>
-        <p>Student, Graphic Designer & Web Developer</p>
-        <p class="sub-hero">Creating websites, clean code structures, and functional visual aesthetics.</p>
+        <b> A Student, Graphic Designer & Web Developer</b>
+        <i class="sub-hero">Creating impactful Websites & Apps with clean Code architectures and functional Visual aesthetics
+             <pre>                                           aligned with Modern Design principles</pre></i>
     </div>
 </header>
 

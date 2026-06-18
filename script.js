@@ -1,4 +1,40 @@
 // Portfolio Dashboard Main JavaScript Logic
+// CONTROL MATRIX FOR THE PREMIUM CYBER LOADER
+window.addEventListener("load", () => {
+    const loaderBlock = document.getElementById("cyberLoader");
+    
+    // Web loading tasks pure hote hi loader dismiss ho jayega
+    setTimeout(() => {
+        if(loaderBlock) {
+            loaderBlock.classList.add("fade-out-pack");
+        }
+    }, 1500); // 1.5 seconds ka solid professional display time
+});
+// DYNAMIC NUMERIC COUNTER MATRIX
+window.addEventListener("DOMContentLoaded", () => {
+    const countElement = document.getElementById("loadCount");
+    const loaderBlock = document.getElementById("cyberLoader");
+    let currentProgress = 0;
+
+    // Har 12ms par count badhega (Around 1.2s total time)
+    const loadInterval = setInterval(() => {
+        currentProgress += 1;
+        if (countElement) {
+            countElement.innerText = `${currentProgress}%`;
+        }
+
+        // 100% complete hote hi fade out trigger
+        if (currentProgress >= 100) {
+            clearInterval(loadInterval);
+            setTimeout(() => {
+                if (loaderBlock) {
+                    loaderBlock.classList.add("fade-out-pack");
+                }
+            }, 200); // 100% hone par smooth dismiss delay
+        }
+    }, 12); 
+});
+//Portfolio Dashboard Main JavaScript Logic
 document.addEventListener("DOMContentLoaded", () => {
     console.log("// PORTFOLIO SYSTEM ONLINE");
 
@@ -65,4 +101,20 @@ function setupCardInteractivity() {
             console.log(`[REDIRECT] Loading asset package for ${projectTitle}...`);
         });
     });
+}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Matrix Digital Rain aur Loader ka poora JS logic yahan aayega...
+        });
+    </script>
+function toggleProject(card){
+
+    document.querySelectorAll('.card').forEach(c=>{
+        if(c !== card){
+            c.classList.remove('revealed');
+        }
+    });
+
+    card.classList.toggle('revealed');
 }
