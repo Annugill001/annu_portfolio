@@ -1,7 +1,7 @@
 /* ==========================================================================
 1. GOOGLE FONTS & GLOBAL RESET
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;900&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -13,6 +13,89 @@ html {
     box-sizing: border-box;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
     transition: font-family 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ==========================================================================
+   SHIVANSH MATRIX PRELOADER STYLING (image_e32fe7.png)
+   ========================================================================== */
+#matrix-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 999999; /* Sabse upar screen block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                visibility 0.6s ease;
+}
+
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15; /* Faint matrix digital rain effect */
+    pointer-events: none;
+}
+
+.loader-interface {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+}
+
+#loader-percentage {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(4.5rem, 15vw, 6.5rem);
+    font-weight: 800; /* Chunky extra bold giant numbers */
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 5px;
+}
+
+#loader-cypher {
+    font-family: 'Orbitron', monospace !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #00ffcc; /* Cyan cyber code line */
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    height: 20px;
+}
+
+.loader-progress-track {
+    width: 180px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#loader-progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #0055ff; /* Blue layout timeline bar */
+    box-shadow: 0 0 10px #0055ff;
+    transition: width 0.1s linear;
+}
+
+#matrix-preloader.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -180,116 +263,215 @@ body {
 }
 
 /* ==========================================================================
-   4. PROJECTS GRID MODERNA
-   ========================================================================== */
-/* ==========================================================================
-   4. PROJECTS GRID MODERNA (SHIVANSH STYLE TAP-REVEAL MATRIX)
+   4. PROJECTS GRID MODERNA (EXACT SHIVANSH FONT & PILL BUTTON)
    ========================================================================== */
 h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 2.2rem;
+    font-weight: 800; /* Extra bold layout title */
+    letter-spacing: -1px;
     color: #fff;
     margin-bottom: 30px;
 }
 
+/* ==========================================================================
+   ONE-BY-ONE LAYOUT WITH NO LINES & INTENSE SILVER GLOW
+   ========================================================================== */
+
 .projects-section {
-    padding: 60px 10%;
+    padding: 100px 20px 60px 20px; 
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 4; 
-    background-color: #0a0a0a;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* Base interactive container mapping */
-.reveal-card {
-    background-color: #0c0c0c;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 24px;
-    height: 380px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.4s ease,
-                box-shadow 0.4s ease,
-                transform 0.3s ease;
-}
-
-.reveal-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Front & Back dual layout sheets */
-.state-front, .state-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 35px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    align-items: center; 
 }
 
-/* State 1: Logo screen design configuration */
-.state-front {
-    opacity: 1;
-    transform: scale(1);
-    justify-content: center;
-    gap: 18px;
-    pointer-events: auto;
-}
-
-/* Smooth Circular frame for project icons (Exact image_f0
-
-.card-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    background-color: #1a1a1a;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.15);
-    background-color: #161616;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-}
-
-.card-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    background-color: #1a1a1a;
-}
-
-.card h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
+.projects-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
     color: #fff;
-    margin-bottom: 8px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+/* One by One arrangement */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 55px; 
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+/* Kisi bhi tarah ki line ya text decoration ko permanently block kiya */
+.project-link {
+    width: 100%; 
+    text-decoration: none !important;
+    color: inherit !important;
+    outline: none;
+}
+
+/* Card base setup */
+.card {
+    background-color: #121212;
+    border: 1.5px solid rgba(255, 255, 255, 0.15); /* Halqi platinum silver border border default mein */
+    border-radius: 20px; 
+    padding: 35px; 
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.card-img {
+    width: 100%;
+    height: 380px; 
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    background-color: #1a1a1a;
+}
+
+.project-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
 }
 
 .card p {
+    font-size: 1rem;
+    color: #b3b3b3;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* KNOW MORE button text look without link behavior */
+.learn-btn {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+/* ==========================================
+   HOVER EFFECT: HULK SILVER LIGHT BOOSTER
+   ========================================== */
+.project-link:hover .card {
+    transform: translateY(-8px); 
+    border-color: rgba(255, 255, 255, 0.95); /* Bright Solid Silver line */
+    background-color: #161616;
+    
+    /* Dynamic Multilayer Silver Glow Aura */
+    box-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.45),   /* Shiniest inner glow */
+        0 0 35px rgba(230, 230, 230, 0.35),  /* Spreading silver light */
+        0 0 60px rgba(200, 200, 200, 0.2),   /* Outer fade */
+        0 40px 70px rgba(0, 0, 0, 0.85);     /* Ground shadow */
+}
+
+.project-link:hover .learn-btn {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile responsive check */
+@media (max-width: 768px) {
+    .card-img {
+        height: 220px;
+    }
+    .card {
+        padding: 22px;
+    }
+}
+
+/* Base card ki normal state border - Isme bhi thodi silver vibe rakhi hai */
+.card {
+    background-color: #121212;
+    border: 2px solid rgba(225, 225, 225, 0.3); /* Clear silver base line */
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+/* HOVER EFFECT: Ultra Intense Hulk Silver Light Glow */
+.card:hover {
+    transform: translateY(-6px);
+    
+    /* Border ka color ekdum sharp solid platinum silver ho jayega */
+    border-color: rgba(255, 255, 255, 0.95); 
+    background-color: #161616;
+    
+    /* 5-Layer Box Shadow: Isse border ke piche ekdum heavy, failti hui silver light niklegi */
+    box-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.4),   /* Innermost core glow */
+        0 0 30px rgba(220, 220, 220, 0.35),  /* Middle bright silver light */
+        0 0 50px rgba(200, 200, 200, 0.25),  /* Outermost wide silver aura */
+        0 30px 60px rgba(0, 0, 0, 0.8);      /* Deep bottom shadow for depth */
+
+    /* Extra Booster: Yeh poore card ke elements aur corners ko ek real light emission look dega */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+}
+/* Gol Brand Logo Containers */
+.card-img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    border-radius: 50%; 
+    margin-bottom: 15px;
+    background-color: #181818;
+    padding: 10px;
+}
+
+.card h3 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-family: 'Inter', sans-serif !important;
     font-size: 0.95rem;
-    color: #888;
-    line-height: 1.5;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* LEARN MORE Pill Capsule Button System */
+.learn-more-btn {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ffffff !important;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px; 
+    text-transform: uppercase; 
+    padding: 12px 32px;
+    border-radius: 100px; /* Perfect round bar */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #ffffff;
+    color: #000000 !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 /* ==========================================================================
@@ -869,16 +1051,6 @@ body.game-mode-active .contact-container {
 }
 
 /* ==========================================================================
-   100% PURE CSS SMART TABS FILTER (NO JAVASCRIPT REQUIRED)
-   ========================================================================== */
-
-/* 1. Default Setup: Saare cards visible rahenge */
-.skills-grid .skill-card {
-    display: flex !important;
-}
-
-/* 2. active state reset */
-/* ==========================================================================
    100% PURE CSS SMART TABS FILTER (4-TABS UNIVERSAL SYSTEM)
    ========================================================================== */
 
@@ -894,46 +1066,33 @@ body.game-mode-active .contact-container {
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* 2. FRONTEND FILTER (Tab 2): Jab Frontend par click/focus ho */
-.skills-section:has(.skills-tabs .tab-btn:nth-child(2):active),
-.skills-section:has(.skills-tabs .tab-btn:nth-child(2):focus) {
-    /* Frontend ko chhodkar baki sab hide */
-}
+/* 2. FRONTEND FILTER (Tab 2) */
 .skills-section:has(.skills-tabs .tab-btn:nth-child(2):active) .skills-grid .skill-card:not(.frontend),
 .skills-section:has(.skills-tabs .tab-btn:nth-child(2):focus) .skills-grid .skill-card:not(.frontend) {
     display: none !important;
 }
 
-/* 3. BACKEND FILTER (Tab 3): Jab Backend par click/focus ho */
-.skills-section:has(.skills-tabs .tab-btn:nth-child(3):active),
-.skills-section:has(.skills-tabs .tab-btn:nth-child(3):focus) {
-    /* Backend ko chhodkar baki sab hide */
-}
+/* 3. BACKEND FILTER (Tab 3) */
 .skills-section:has(.skills-tabs .tab-btn:nth-child(3):active) .skills-grid .skill-card:not(.backend),
 .skills-section:has(.skills-tabs .tab-btn:nth-child(3):focus) .skills-grid .skill-card:not(.backend) {
     display: none !important;
 }
 
-/* 4. CORE FILTER (Tab 4): Jab Core par click/focus ho */
-.skills-section:has(.skills-tabs .tab-btn:nth-child(4):active),
-.skills-section:has(.skills-tabs .tab-btn:nth-child(4):focus) {
-    /* Core ko chhodkar baki sab hide */
-}
+/* 4. CORE FILTER (Tab 4) */
 .skills-section:has(.skills-tabs .tab-btn:nth-child(4):active) .skills-grid .skill-card:not(.core),
 .skills-section:has(.skills-tabs .tab-btn:nth-child(4):focus) .skills-grid .skill-card:not(.core) {
     display: none !important;
 }
 
-/* 5. DYNAMIC TAB HIGHLIGHTING: Jis tab par click ho, wo green/white border ho jaye */
+/* 5. DYNAMIC TAB HIGHLIGHTING */
 .skills-tabs:has(.tab-btn:nth-child(2):focus) .tab-btn:nth-child(2),
 .skills-tabs:has(.tab-btn:nth-child(3):focus) .tab-btn:nth-child(3),
 .skills-tabs:has(.tab-btn:nth-child(4):focus) .tab-btn:nth-child(4) {
     color: #fff !important;
     background-color: rgba(255, 255, 255, 0.15) !important;
-    border-color: #22c55e !important; /* Active tab green ho jayega */
+    border-color: #22c55e !important;
 }
 
-/* Jab koi specific tab selected ho, toh "All" tab se highlight hat jaye */
 .skills-tabs:has(.tab-btn:nth-child(2):focus) .tab-btn:nth-child(1),
 .skills-tabs:has(.tab-btn:nth-child(3):focus) .tab-btn:nth-child(1),
 .skills-tabs:has(.tab-btn:nth-child(4):focus) .tab-btn:nth-child(1) {
@@ -941,3 +1100,50 @@ body.game-mode-active .contact-container {
     background-color: #121212 !important;
     border-color: rgba(255, 255, 255, 0.05) !important;
 }
+.learn-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    background: linear-gradient(135deg, #00ff88, #00c853);
+    box-shadow:
+        0 0 10px rgba(0,255,136,.5),
+        0 0 20px rgba(0,255,136,.4),
+        0 0 40px rgba(0,255,136,.3);
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.learn-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 20px rgba(0,255,136,.8),
+        0 0 40px rgba(0,255,136,.6),
+        0 0 60px rgba(0,255,136,.5);
+}
+
+.learn-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.4),
+        transparent
+    );
+    transition: .6s;
+}
+
+.learn-btn:hover::before {
+    left: 120%;
+}
+
