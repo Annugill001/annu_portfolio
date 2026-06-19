@@ -1514,3 +1514,29 @@ body.game-mode-active .contact-container {
         text-align: center !important;
     }
 }
+/* ==========================================================================
+   MOBILE PROJECT FOCUS SHINE (MAC LIKE SILVER GLOW FOCUS)
+   ========================================================================== */
+
+/* 1. Normal State: Saare cards par smoothly changes monitor karne ke liye transition */
+.projects-grid .card {
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* 2. Jab grid par finger touch ho, toh default sabhi cards ki opacity halki kam ho jaye */
+.projects-grid:active .card {
+    opacity: 0.4 !important; /* Baaki saare projects dundhle (dim) ho jayenge */
+}
+
+/* 3. Magar JIS CARD PAR FINGER HAI, woh ekdum VIP ban kar silver chamke ga! */
+.projects-grid .card:active {
+    opacity: 1 !important; /* Is par poori brightness wapas aa jayegi */
+    background: rgba(255, 255, 255, 0.12) !important; /* Premium deep silver base */
+    
+    /* Macbook jaisi ultra-sharp silver lighting border glow */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25), 
+                inset 0 0 10px rgba(255, 255, 255, 0.2) !important; 
+                
+    transform: scale(1.02) !important; /* Halka sa upar uthega focus dikhane ke liye */
+    z-index: 10 !important;
+}
