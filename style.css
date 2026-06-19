@@ -1515,6 +1515,24 @@ body.game-mode-active .contact-container {
     }
 }
 /* ==========================================================================
+   MOBILE TOUCH GLOW TRIGGER (MAC LIKE GREY LIGHT ON FINGER TOUCH)
+   ========================================================================== */
+
+/* 1. Card par finger rakhte hi (Tap karte hi) grey glow on ho jaye */
+.card:active, 
+.projects-grid .card:active {
+    background: rgba(255, 255, 255, 0.08) !important; /* Premium sleek grey shade */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15) !important; /* Mac jaisi subtle grey lighting */
+    transform: scale(0.98) !important; /* Halka sa press effect jo premium feel dega */
+    transition: all 0.2s ease !important;
+}
+
+/* 2. Mobile browsers ko batane ke liye ki yahan touch responsive feedback chahiye */
+.card {
+    -webkit-tap-highlight-color: transparent; /* Default blue/yellow box highlight ko block karega */
+    cursor: pointer;
+}
+/* ==========================================================================
    MOBILE PROJECT FOCUS SHINE (MAC LIKE SILVER GLOW FOCUS)
    ========================================================================== */
 
