@@ -1491,19 +1491,12 @@ body.game-mode-active .contact-container {
 .hero-content .sub-hero, 
 .hero-content .sub-hero pre {
     /* Muted Blueish-Cyan tone jo eyes par smooth lagta hai aur photo par pop hota hai */
-    color: #b3d4fa !important; 
+    color: #305c90 !important; 
 }
 /* ==========================================================================
    ULTRA-ATTRACTIVE BLUEISH COLOR FOR ALL SCREENS (MAC & MOBILE SAME LOOK)
    ========================================================================== */
-.hero-content .sub-hero, 
-.hero-content .sub-hero pre {
-    /* Premium ice-blue tone jo Mac aur Phone dono par sahi chamkega */
-    color: #a5f3fc !important; 
-    
-    /* Halka sa dark glass glow taaki background image ke upar text dable na aur phone par pop ho */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 10px rgba(165, 243, 252, 0.2) !important;
-}
+
 
 /* Mobile responsive synchronization */
 @media (max-width: 768px) {
